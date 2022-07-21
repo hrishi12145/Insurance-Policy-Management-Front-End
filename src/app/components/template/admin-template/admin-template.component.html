@@ -1,0 +1,260 @@
+<!-- 
+  ========================================
+      Horizontal Navigation Bar
+  =========================================
+-->
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light justify-content-end"
+  style="margin-bottom: 10px; margin-left: auto"
+>
+  <div>
+    <ul class="nav navbar-nav navbar-right" *ngIf="!currentAdmin">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/home" class="nav-link">Home</a>
+        </li>
+      </ul>
+      <li class="nav-item">
+        <a href="/admin-register" class="nav-link"
+          ><span class="glyphicon glyphicon-user"></span> Admin Sign Up
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/admin-login" class="nav-link"
+          ><span class="glyphicon glyphicon-log-in"></span> Admin Login
+        </a>
+      </li>
+    </ul>
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About us modal 
+
+    <div
+      class="modal fade aboutusmodal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="mySmallModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header custom-bg text-white text-center">
+            <h5 class="modal-title" id="exampleModalLongTitle">About Us</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <p style="font-size: 20px">
+                <strong>
+                  The insurance company stipulates that an individual or
+                  business periodically pay them a specific amount of money as
+                  premium for the availing and maintenance of their insurance
+                  policy and coverage. Insurance companies consider many factors
+                  while determining the premiums, particularly in case of life
+                  insurance. These include the chances of claims being made by
+                  the policyholder, medical conditions, smoking and other
+                  lifestyle habits, area of residence, nature of employment and
+                  so on. There are actuaries tapped by insurers for working out
+                  the chances of claims being made by the insured individual for
+                  critical ailments or life-threatening diseases like
+                  cancer/heart attacks across multiple age groups. The higher
+                  the risks linked to the individual, the higher will be the
+                  premium for life insurance. Premiums can be paid through
+                  monthly, half-yearly or even annual installments. Customers
+                  can also pay the entire amount as a one-time payment for the
+                  whole policy term prior to the commencement of coverage in
+                  some cases. The insurance premium is what insurance companies
+                  make use of when it comes to ensuring coverage for all
+                  liabilities linked to the policy. The premium may also be
+                  invested by the insurance company in securities for earning
+                  returns and covering some of the costs tied to the coverage.
+                </strong>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="text-center">
+              <button
+                type="button"
+                class="btn custom-bg text-white"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     ********** -->
+
+    <!-- Contact us modal -->
+
+    <div
+      class="modal fade contactusmodal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="mySmallModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header custom-bg text-white text-center">
+            <h5 class="modal-title" id="exampleModalLongTitle">Contact Us</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container text-center">
+              <p style="font-size: 23px">
+                <strong>
+                  <img
+                    src="resources/images/phone.png"
+                    style="width: 27px"
+                    alt="img"
+                  />+91 876xxxxx94 / +91 784xxxxx32<br />
+                  <img
+                    src="resources/images/mail.png"
+                    style="width: 29px"
+                    alt="img"
+                  />xxxxxxxxx@gmail.com
+                </strong>
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="text-center">
+              <button
+                type="button"
+                class="btn custom-bg text-white"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ********** -->
+    <ul class="nav navbar-nav navbar-right" *ngIf="currentAdmin">
+      <li class="nav-item">
+        <a href="/admin-profile" class="nav-link"
+          ><span class="glyphicon glyphicon-user"></span>
+          {{ currentAdmin.firstName }}</a
+        >
+      </li>
+      <li class="nav-item">
+        <a (click)="logOut()" href="/home" class="nav-link"
+          ><span class="glyphicon glyphicon-log-out"></span> LogOut</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 
+  ========================================
+      Vertical Navigation Bar
+  =========================================
+-->
+
+<nav
+  class="navbar custom-vertical-nav navbar-dark bg-dark nav-pills nav-fill"
+  *ngIf="currentAdmin"
+>
+  <ul class="navbar-nav custom-navbar-nav">
+    <li class="nav-item">
+      <a class="navbar-brand" href="https://angular.io">
+        <!-- <span><img src="assets/imgs/angular.png" /></span> -->
+        <span><img src="assets/imgs/flash-logo-png.png" /></span>
+        <span class="logo">Insurance</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/dashboard" class="nav-link">
+        <span class="glyphicon glyphicon-home"></span>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/user-list" class="nav-link">
+        <span class="glyphicon glyphicon-user"></span>
+        <span>User List</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/policy-list" class="nav-link">
+        <span class="glyphicon glyphicon-th-large"></span>
+        <span>Policies List</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/transaction-list" class="nav-link">
+        <span class="glyphicon glyphicon-usd"></span>
+        <span>Purchases</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/admin-list" class="nav-link">
+        <span class="glyphicon glyphicon-user"></span>
+        <span>Admin List</span>
+      </a>
+    </li>
+  </ul>
+</nav>

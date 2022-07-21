@@ -1,0 +1,21 @@
+<div class="container custom-container">
+  <h2>Policy Details</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Policy Id</th>
+        <th>Policy Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ policyId }}</td>
+        <td>{{ currentPolicy.policyName }}</td>
+        <td>{{ currentPolicy.description }}</td>
+        <td>Rs {{ currentPolicy.price }} /-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

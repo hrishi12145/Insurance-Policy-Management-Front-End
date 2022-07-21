@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      class="profile-img-card"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+    />
+
+    <form
+      name="form-signup"
+      (ngSubmit)="f.form.valid && register()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <!-- ===============    First Name   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !name.valid }"
+      >
+        <label for="name">First Name</label>
+        <input
+          type="text"
+          class="form-control input-text-custom"
+          id="firstName"
+          name="firstName"
+          [(ngModel)]="user.firstName"
+          #name="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !name.valid" class="help-block">
+          An valid first Name is required.
+        </div>
+      </div>
+      <!-- ===============    Last Name   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !lastname.valid }"
+      >
+        <label for="lastname">Last Name</label>
+        <input
+          type="text"
+          class="form-control input-text-custom"
+          id="lastName"
+          name="lastName"
+          [(ngModel)]="user.lastName"
+          #lastname="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !lastname.valid" class="help-block">
+          An valid Last Name is required.
+        </div>
+      </div>
+
+      <!-- ===============    Mobile Number   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !mobileNo.valid }"
+      >
+        <label for="lastname">Mobile No.</label>
+        <input
+          type="text"
+          class="form-control input-text-custom"
+          id="mobileNo"
+          name="mobileNo"
+          [(ngModel)]="user.mobileNo"
+          #mobileNo="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !mobileNo.valid" class="help-block">
+          An valid Mobile No. is required.
+        </div>
+      </div>
+      <!-- ===============    City   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !city.valid }"
+      >
+        <label for="name">City</label>
+        <input
+          type="text"
+          class="form-control input-text-custom"
+          id="city"
+          name="city"
+          [(ngModel)]="user.city"
+          #city="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !city.valid" class="help-block">
+          An valid City Name is required.
+        </div>
+      </div>
+      <!-- ===============    User Name   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !username.valid }"
+      >
+        <label for="username">Username</label>
+        <input
+          type="email"
+          class="form-control input-text-custom"
+          id="username"
+          name="username"
+          [(ngModel)]="user.userName"
+          #username="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">
+          An valid username is required.
+        </div>
+      </div>
+      <!-- ===============    Password   ========================================= -->
+      <div
+        class="form-group"
+        [ngClass]="{ 'has-error': f.submitted && !password.valid }"
+      >
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control input-text-custom"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          #password="ngModel"
+          required
+        />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">
+          Password is required.
+        </div>
+      </div>
+      <button
+        class="btn btn-lg btn-primary btn-block btn-signin form-submit-button"
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
+    <!-- /form -->
+    <a [routerLink]="['/login']" class="btn btn-link">I have Account!</a>
+  </div>
+  <!-- /card-container -->
+</div>
+<!-- /container -->

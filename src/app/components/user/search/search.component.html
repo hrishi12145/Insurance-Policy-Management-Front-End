@@ -1,0 +1,16 @@
+<!--Search Component-->
+<div class="form-header">
+  <input
+    #myInput="ngModel"
+    type="text"
+    name="task"
+    [(ngModel)]="newTask"
+    placeholder="Search"
+    class="au-input au-input-xl"
+    (keyup.enter)="doSearch(myInput.value)"
+    required
+  />
+  <button (click)="doSearch(myInput.value)" class="au-btn-submit">
+    Search
+  </button>
+</div>

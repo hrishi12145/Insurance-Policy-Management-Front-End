@@ -1,0 +1,203 @@
+<div class="container custom-container">
+  <h2>User Profile Details</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>City</th>
+        <th>Mobile No.</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ currentAdmin.firstName }}</td>
+        <td>{{ currentAdmin.lastName }}</td>
+        <td>{{ currentAdmin.userName }}</td>
+        <td>{{ currentAdmin.city }}</td>
+        <td>{{ currentAdmin.mobileNo }}</td>
+        <td>
+          <a
+            class="btn btn-warning custom-btn-link"
+            (click)="editUserRequest(currentAdmin)"
+            ><em class="glyphicon glyphicon-pencil"></em
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--========================================
+    userModal -- Update User Details
+  =========================================-->
+<div
+  class="modal fade"
+  id="userModal"
+  #userModal
+  tabIndex="-1"
+  role="dialog"
+  aria-labelledby="userModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form
+        name="form-user-update"
+        (ngSubmit)="f.form.valid && updateAdmin()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-header">
+          <h5 class="modal-title">User Details</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" *ngIf="errorMessage">
+            <strong>Error!</strong> {{ errorMessage }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--======================================= First Name =========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !firstName.valid }"
+          >
+            <label for="name">First Name</label>
+            <input
+              type="text"
+              class="form-control input-text-custom"
+              id="name"
+              name="firstName"
+              [(ngModel)]="selectedUser.firstName"
+              #firstName="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !firstName.valid" class="help-block">
+              An valid name is required.
+            </div>
+          </div>
+          <!--======================================== Last Name =========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !lastName.valid }"
+          >
+            <label for="name">Last Name</label>
+            <input
+              type="text"
+              class="form-control input-text-custom"
+              id="name"
+              name="lastName"
+              [(ngModel)]="selectedUser.lastName"
+              #lastName="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !lastName.valid" class="help-block">
+              An valid name is required.
+            </div>
+          </div>
+          <!--======================================== User Name =========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !userName.valid }"
+          >
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control input-text-custom"
+              id="userName"
+              name="userName"
+              [(ngModel)]="selectedUser.userName"
+              #userName="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !userName.valid" class="help-block">
+              An valid username is required.
+            </div>
+          </div>
+          <!--======================================== Mobile No=========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !mobileNo.valid }"
+          >
+            <label for="username">Mobile No.</label>
+            <input
+              type="text"
+              class="form-control input-text-custom"
+              id="mobileNo"
+              name="mobileNo"
+              [(ngModel)]="selectedUser.mobileNo"
+              #mobileNo="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !mobileNo.valid" class="help-block">
+              An valid mobile No is required.
+            </div>
+          </div>
+
+          <!--========================================City=========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !city.valid }"
+          >
+            <label for="username">City</label>
+            <input
+              type="text"
+              class="form-control input-text-custom"
+              id="city"
+              name="city"
+              [(ngModel)]="selectedUser.city"
+              #city="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !city.valid" class="help-block">
+              An valid mobile No is required.
+            </div>
+          </div>
+          <!--======================================== Password =========================================-->
+          <div
+            class="form-group"
+            [ngClass]="{ 'has-error': f.submitted && !password.valid }"
+          >
+            <label for="password">Password</label>
+            <input
+              readonly
+              type="password"
+              class="form-control input-text-custom"
+              id="password"
+              name="password"
+              [(ngModel)]="selectedUser.password"
+              #password="ngModel"
+              required
+            />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">
+              Password is required.
+            </div>
+          </div>
+        </div>
+        <!--======================================== footer =========================================-->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

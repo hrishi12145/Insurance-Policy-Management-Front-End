@@ -1,0 +1,147 @@
+<!-- Contact-->
+<section class="page-section" id="contact">
+  <br />
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Contact Us</h2>
+      <h3 class="section-subheading text-center">
+        Want to get in touch? Fill out the form below to send me a message and I
+        will get back to you as soon as possible!
+      </h3>
+    </div>
+    <!---->
+    <div class="alert alert-danger" role="alert" *ngIf="info">
+      {{ info }}
+    </div>
+    <form
+      action=" https://formsubmit.co/el/xemojo"
+      method="post"
+      id="contactForm"
+      (ngSubmit)="f.form.valid && submit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div
+        class="row align-items-stretch mb-5"
+        [ngClass]="{ 'has-error': f.submitted }"
+      >
+        <div class="col-md-6">
+          <div class="form-group">
+            <!-- Name input-->
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              placeholder="Your Name *"
+              required
+            />
+            <div class="invalid-feedback">A name is required.</div>
+          </div>
+          <div class="form-group">
+            <!-- Email address input-->
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              placeholder="Your Email *"
+              required
+            />
+            <div class="invalid-feedback">An email is required.</div>
+            <div class="invalid-feedback">Email is not valid.</div>
+          </div>
+          <div class="form-group mb-md-0">
+            <!-- Phone number input-->
+            <input
+              class="form-control"
+              id="phone"
+              type="tel"
+              placeholder="Your Phone *"
+              required
+            />
+            <div class="invalid-feedback">A phone number is required.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group form-group-textarea mb-md-0">
+            <!-- Message input-->
+            <textarea
+              class="form-control"
+              id="message"
+              placeholder="Your Message *"
+              required
+            ></textarea>
+            <div class="invalid-feedback">A message is required.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Submit success message-->
+      <!---->
+      <!-- This is what your users will see when the form-->
+      <!-- has successfully submitted-->
+      <div class="d-none" id="submitSuccessMessage">
+        <div class="text-center text-white mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+        </div>
+      </div>
+      <!-- Submit error message-->
+      <!---->
+      <!-- This is what your users will see when there is-->
+      <!-- an error submitting the form-->
+      <div class="d-none" id="submitErrorMessage">
+        <div class="text-center text-danger mb-3">Error sending message!</div>
+      </div>
+      <!-- Submit Button-->
+      <div class="text-center">
+        <button
+          (ngSubmit)="(f.form.valid)"
+          class="btn btn-primary btn-xl text-uppercase"
+          id="submitButton"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+      <br />
+      <br />
+    </form>
+  </div>
+</section>
+
+<!-- Footer-->
+<footer class="footer py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-lg-start">
+        &copy; Copyrights Company.com All rights reserved.
+      </div>
+      <div class="col-lg-4 my-3 my-lg-0">
+        <a
+          class="btn btn-light btn-social mx-2"
+          href="https://www.linkedin.com/in/hrishikeshl/"
+          aria-label="LinkedIn"
+        >
+          <fa-icon
+            style="font-size: xx-large; color: blue"
+            [icon]="faLinkedin"
+          ></fa-icon>
+        </a>
+        <a
+          class="btn btn-light btn-social mx-2"
+          href="https://github.com/hrishi12145"
+          aria-label="Github"
+        >
+          <fa-icon
+            style="font-size: xx-large; color: black"
+            [icon]="faGithub"
+          ></fa-icon>
+        </a>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a class="link-dark text-decoration-none me-3" href="#!"
+          >Privacy Policy</a
+        >
+        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
