@@ -23,12 +23,14 @@
     <div class="card-deck">
       <div class="card" style="width: 18rem" *ngFor="let item of obs | async">
         <div class="custom-brand">
-          <span class="glyphicon glyphicon-picture"></span>
+         <!-- <span class="glyphicon glyphicon-picture" ></span> -->
+         <span>
+          <img src="assets/imgs/blue-hands-logo.png" width="100" height="100">
+         </span>
         </div>
         <div class="card-body">
-          <h4 class="card-title">{{ item.policyName }}</h4>
-          <p class="card-text">{{ item.description }}</p>
-          <p class="card-text">Rs {{ item.price }} /-</p>
+          <h4 class="card-title" style="text-align: center; color: #0053ee">{{ item.policyName }}</h4>
+          <p class="card-text" style="text-align: center;">Rs {{ item.price }} /-</p>
           <a
             class="btn btn-primary btn-custom-link"
             (click)="purchasePolicy(item)"
