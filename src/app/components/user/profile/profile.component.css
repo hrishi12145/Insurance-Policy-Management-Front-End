@@ -1,22 +1,28 @@
-table {
-  width: 100%;
+body {
+  margin: 0;
+  padding-top: 40px;
+  color: #2e323c;
+  background: #f5f6fa;
+  position: relative;
+  height: 100%;
 }
 
-.custom-container {
-  margin-left: 100px;
-  margin-top: 40px;
-  width: calc(100% - 100px);
+.form-control {
+  border: 1px solid #cfd1d8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: .825rem;
+  background: #ffffff;
+  color: #2e323c;
 }
 
-.custom-btn-link {
-  margin-left: 5px;
-  color: #fff;
+.card {
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
 }
 
-.custom-btn-link .glyphicon {
-  color: #fff;
-}
-
-.custom-mat-cell {
-  width: 120px;
-}

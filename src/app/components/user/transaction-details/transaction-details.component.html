@@ -4,8 +4,8 @@
       <div class="card-header">
         <div class="row">
           <div class="col col-xs-6">
-            <div class="row" style="text-align: center; color: #0053ee ; font-family:'Arial Narrow Bold'">
-              <h3 class="panel-title">Transactions History</h3>
+            <div class="row" style="text-align: left; color: #0053ee">
+              <h3 class="panel-title">All Transactions</h3>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               Transaction Id
             </th>
-            <td mat-cell *matCellDef="let element">{{ element.user.id }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
           </ng-container>
 
           <ng-container matColumnDef="firstName">
@@ -67,7 +67,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
         <mat-paginator
-          [pageSizeOptions]="[10, 20, 30]"
+          [pageSizeOptions]="[50, 100, 1000]"
           showFirstLastButtons
         ></mat-paginator>
       </div>

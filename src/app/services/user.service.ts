@@ -127,7 +127,7 @@ export class UserService {
   // HttpClient API get() method => Fetch Transaction Details By Id
   getTransactionById(id: string): Observable<Transaction[]> {
     return this.http
-      .get<Transaction[]>(API_URL + 'transaction/getTransactionById/' + id)
+      .get<Transaction[]>(API_URL + 'transaction/getTransactionById/' + `${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
