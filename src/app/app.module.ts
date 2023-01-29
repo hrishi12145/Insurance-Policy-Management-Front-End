@@ -24,6 +24,7 @@ import { AboutUsComponent } from './components/user/about-us/about-us.component'
 import { ContactUsComponent } from './components/user/contact-us/contact-us.component';
 import { OrderComponent } from './components/user/order/order.component';
 import { SearchComponent } from './components/user/search/search.component';
+import { TransactionDetailsComponent } from './components/user/transaction-details/transaction-details.component';
 // ***************HttpClientModule and FormsModule, ReactiveFormsModule Modules ***************
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -82,6 +83,7 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // *************** FontAwesome Module ***************
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 const AllMaterialModules = [
   MatAutocompleteModule,
@@ -146,6 +148,7 @@ const AllMaterialModules = [
     IndexTemplateComponent,
     OrderComponent,
     SearchComponent,
+    TransactionDetailsComponent,
   ],
   imports: [
     BrowserModule,

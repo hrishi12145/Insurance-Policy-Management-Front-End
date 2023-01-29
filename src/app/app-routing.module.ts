@@ -10,6 +10,7 @@ import { DetailComponent } from './components/user/detail/detail.component';
 import { AboutUsComponent } from './components/user/about-us/about-us.component';
 import { ContactUsComponent } from './components/user/contact-us/contact-us.component';
 import { OrderComponent } from './components/user/order/order.component';
+import {TransactionDetailsComponent} from './components/user/transaction-details/transaction-details.component';
 // ******* Importing Admin Component  *********************************
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { AdminProfileComponent } from './components/admin/admin-profile/admin-profile.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'buy', component: OrderComponent },
+  { path: 'transaction-details', component: TransactionDetailsComponent },
   // admin Panel
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'admin-login', component: AdminLoginComponent },
