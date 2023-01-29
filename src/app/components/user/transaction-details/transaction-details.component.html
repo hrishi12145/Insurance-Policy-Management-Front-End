@@ -1,1 +1,76 @@
-<p>transaction-details works!</p>
+<div class="container custom-container">
+  <div *ngIf="dataSource">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col col-xs-6">
+            <div class="row" style="text-align: center; color: #0053ee ; font-family:'Arial Narrow Bold'">
+              <h3 class="panel-title">Transactions History</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Transaction Id
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.user.firstName + "   " }}
+
+              {{ element.user.lastName }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="user">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              User Email ID
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.user.userName }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="policy">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Policy Name
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.policy.policyName }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+            <td mat-cell *matCellDef="let element">
+              Rs {{ element.policy.price }} /-
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="purchaseDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Purchase Date & Time
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.purchaseDate }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[10, 20, 30]"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
