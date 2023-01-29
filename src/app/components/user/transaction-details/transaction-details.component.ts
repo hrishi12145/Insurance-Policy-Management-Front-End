@@ -27,17 +27,18 @@ export class TransactionDetailsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   constructor(private userService: UserService,private route: ActivatedRoute) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit(): void {
-    this.findUserTransaction();
     this.route.paramMap.subscribe((params) => {
       if (params.has('id')) {
         this.userId = params.get('id');
       }
     });
+    this.findUserTransaction();
   }
 
   ngAfterViewInit() {

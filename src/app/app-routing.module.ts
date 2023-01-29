@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'buy', component: OrderComponent },
-  { path: 'transaction-details', component: TransactionDetailsComponent },
+  { path: 'transaction-details/:id', component: TransactionDetailsComponent },
   // admin Panel
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'admin-login', component: AdminLoginComponent },
